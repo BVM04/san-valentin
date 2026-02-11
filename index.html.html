@@ -3,131 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Una pregunta muy especial 💖</title>
+<title>Una misión muy especial 💘</title>
 
 <style>
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
+  text-align: center;
 }
 
-.container {
+.card {
   background: white;
-  padding: 35px;
-  border-radius: 25px;
-  text-align: center;
-  width: 90%;
-  max-width: 380px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  animation: aparecer 1.5s ease;
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 420px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  animation: fadeIn 1.5s ease;
 }
 
 h1 {
-  color: #e63946;
-  margin-bottom: 15px;
+  color: #ff3366;
 }
 
 p {
-  color: #333;
   font-size: 1.1em;
-}
-
-.buttons {
-  margin-top: 20px;
-  position: relative;
+  color: #444;
 }
 
 button {
-  padding: 12px 22px;
-  border-radius: 30px;
+  padding: 14px 28px;
+  border-radius: 40px;
   border: none;
   font-size: 1em;
   cursor: pointer;
-  margin: 10px;
+  margin: 12px;
   transition: 0.3s ease;
 }
 
 #yesBtn {
-  background: #e63946;
+  background: #ff3366;
   color: white;
+  box-shadow: 0 10px 25px rgba(255,51,102,0.4);
 }
 
 #yesBtn:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 #noBtn {
-  background: #ccc;
-}
-
-@keyframes aparecer {
-  from {opacity: 0; transform: scale(0.8);}
-  to {opacity: 1; transform: scale(1);}
+  background: #ddd;
+  position: relative;
 }
 
 .heart {
   position: absolute;
   color: rgba(255,255,255,0.8);
-  font-size: 20px;
+  font-size: 22px;
   animation: float 6s linear infinite;
 }
 
 @keyframes float {
-  from {transform: translateY(100vh); opacity: 1;}
-  to {transform: translateY(-10vh); opacity: 0;}
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.final {
+  animation: zoom 1s ease;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="mainBox">
-  <h1>Hola amor 💕</h1>
+<div class="card" id="card">
+  <h1>🚨 MISIÓN SECRETA 🚨</h1>
   <p>
-    Hay algo que quiero preguntarte…<br><br>
-    ¿Quieres ser mi San Valentín este año? 💘
+    Atención señorita hermosa...<br><br>
+    Ha sido seleccionada para una misión extremadamente importante.<br><br>
+    Objetivo: Hacerme el hombre más feliz del mundo.
   </p>
+  <p><strong>¿Acepta ser mi San Valentín? 💘</strong></p>
 
-  <div class="buttons">
-    <button id="yesBtn">Sí, quiero 💖</button>
-    <button id="noBtn">No 🙈</button>
-  </div>
+  <button id="yesBtn">ACEPTO 💖</button>
+  <button id="noBtn">No 😅</button>
 </div>
 
 <script>
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
-const box = document.getElementById("mainBox");
+const card = document.getElementById("card");
 
 yesBtn.addEventListener("click", function() {
-  box.innerHTML = `
-    <h1>Sabía que dirías que sí 😍</h1>
-    <p>
-      Gracias por hacer mi mundo más bonito cada día.<br><br>
-      Prometo llenarte de momentos especiales 💞
-    </p>
-    <p style="font-size:1.5em;">💖✨💖✨💖</p>
+  card.innerHTML = `
+    <div class="final">
+      <h1>¡MISIÓN CONFIRMADA! 💍✨</h1>
+      <p>
+        Oficialmente acabas de hacerme el más feliz.<br><br>
+        Prometo besos, risas, abrazos eternos<br>
+        y momentos que se vuelvan recuerdos inolvidables.
+      </p>
+      <h2>Te quiero muchísimo ❤️</h2>
+    </div>
   `;
+  document.body.style.background = "linear-gradient(135deg, #ff3366, #ff9966)";
 });
 
 noBtn.addEventListener("mouseover", function() {
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 200 - 100;
+  const x = Math.random() * 250 - 125;
+  const y = Math.random() * 250 - 125;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-for (let i = 0; i < 25; i++) {
+for (let i = 0; i < 35; i++) {
   let heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "❤";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+  heart.style.animationDuration = (3 + Math.random() * 4) + "s";
   document.body.appendChild(heart);
 }
 </script>
